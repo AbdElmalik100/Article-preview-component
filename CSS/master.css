@@ -1,0 +1,210 @@
+/* Global Rules */
+* {
+    box-sizing: border-box;
+}
+:root {
+    /* Colors */
+    --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+    --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+    --Grayish-Blue: hsl(212, 23%, 69%);
+    --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+body {
+    Font-size: 13px;
+    font-family: 'Manrope', sans-serif;
+    background-color: var(--Light-Grayish-Blue);
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+
+/* Grid System */
+@media (min-width: 576px) { /* Small Devices => Landscape Phones */
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) { /* Medium Devices => Tablets */
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) { /* Desktops */
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) { /* Large Screens */
+    .container {
+        max-width: 1140px;
+    }
+}
+
+
+.card {
+    background-color: white;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px 0px #0000002b;
+}
+.card > img {
+    width: 42%;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.card .info {
+    padding: 40px;
+    position: relative;
+}
+.card .info .text h1 {
+    font-size: 22px;
+    color: var(--Very-Dark-Grayish-Blue);
+    margin-top: 0;
+}
+.card .info .text p {
+    line-height: 1.7;
+    color: var(--Desaturated-Dark-Blue);
+}
+.card .info .profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card .info .profile .avatar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.card .info .profile .avatar > img {
+    width: 15%;
+    border-radius: 50%;
+}
+.card .info .profile .avatar .txt h3 {
+    margin: 0 0 5px;
+    color: var(--Very-Dark-Grayish-Blue);
+}
+.card .info .profile .avatar .txt span {
+    color: var(--Grayish-Blue);
+}
+.card .info .profile .icon {
+    padding: 10px;
+    background-color: var(--Light-Grayish-Blue);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--Desaturated-Dark-Blue);
+    font-size: 15px;
+    position: relative;
+}
+.card .info .profile .icon::after {
+    content: " ";
+    position: absolute;
+    border-color: var(--Very-Dark-Grayish-Blue) transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+.social {
+    width: 250px;
+    padding: 20px;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    color: var(--Grayish-Blue);
+    border-radius: 10px;
+    top: 47%;
+    display: flex;
+    right: -70px;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+    position: absolute;
+}
+.social span {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+.social i {
+    font-size: 20px;
+    color: var(--Light-Grayish-Blue);
+    cursor: pointer;
+}
+.card .info .profile .icon.open::after, 
+.social.open {
+    display: flex;
+}
+@media (min-width: 767px) {
+    .card .info .profile .icon:hover,
+    .card .info .profile .icon.active {
+        background-color: var(--Very-Dark-Grayish-Blue);
+        color: var(--Light-Grayish-Blue);
+    }
+}
+@media (max-width: 767px) {
+    .card {
+        flex-direction: column;
+        width: 425px;
+    }
+    .card > img {
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+        height: 275px;
+    }
+    .card .info {
+        padding: 40px 40px 20px;
+    }
+    .card .info .profile {
+        margin-top: 40px;
+    }
+    .card .info .profile .icon.open::after {
+        display: none;
+    }
+    .card .info .profile .icon {
+        z-index: 1100;
+    }
+    .social {
+        gap: 20px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 33px 40px;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        top: initial;
+        justify-content: flex-start;
+        border-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .card .info .profile .icon.active {
+        background-color: var(--Desaturated-Dark-Blue);
+        color: var(--Light-Grayish-Blue);
+    }
+}
+@media (max-width: 575px) {
+    .card {
+        width: 355px;
+    }
+    .card .info {
+        padding: 40px 30px 20px;
+    }
+    .card .info .text h1 {
+        font-size: 18px;
+    }
+    .card .info .text p {
+        font-size: 11px;
+    }
+    .social {
+        padding: 30px 40px;
+    }
+}
